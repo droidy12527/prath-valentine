@@ -31,28 +31,19 @@ btnYes.addEventListener('touchstart', function () {
   btnYes.style.transform = 'scale(' + yesScale + ')';
 }, { passive: true });
 
-// --- NO Button Escape ---
+// --- NO Button Dodge ---
 const btnNo = document.getElementById('btnNo');
 
-function escapeNoButton() {
-  const padding = 20;
-  const bw = btnNo.offsetWidth;
-  const bh = btnNo.offsetHeight;
-  const maxX = window.innerWidth - bw - padding;
-  const maxY = window.innerHeight - bh - padding;
-  const x = padding + Math.random() * (maxX - padding);
-  const y = padding + Math.random() * (maxY - padding);
-
-  btnNo.style.position = 'fixed';
-  btnNo.style.left = x + 'px';
-  btnNo.style.top = y + 'px';
-  btnNo.style.zIndex = '50';
+function dodgeNoButton() {
+  const offsetX = (Math.random() - 0.5) * 300;
+  const offsetY = (Math.random() - 0.5) * 200;
+  btnNo.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px)';
 }
 
-btnNo.addEventListener('mouseenter', escapeNoButton);
-btnNo.addEventListener('touchstart', function (e) {
+btnNo.addEventListener('mouseenter', dodgeNoButton);
+btnNo.addEventListener('touchstart', function(e) {
   e.preventDefault();
-  escapeNoButton();
+  dodgeNoButton();
 }, { passive: false });
 
 // --- YES Click → Celebration ---
@@ -66,29 +57,29 @@ btnYes.addEventListener('click', function () {
 // --- Confetti / Falling Hearts ---
 function launchConfetti() {
   const container = document.getElementById('confettiContainer');
-  const pieces = ['💗', '💕', '🎉', '❤️', '💖', '✨', '💘', '🥳', '💝'];
-  const total = 60;
+  const pieces = ['💗', '💕', '🎉', '❤️', '💖', '✨', '💘', '🥳', '💝', '🌟', '💞', '💓', '💫'];
+  const total = 80;
 
   for (let i = 0; i < total; i++) {
     const piece = document.createElement('span');
     piece.className = 'confetti-piece';
     piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
     piece.style.left = Math.random() * 100 + '%';
-    piece.style.fontSize = (16 + Math.random() * 24) + 'px';
-    piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+    piece.style.fontSize = (18 + Math.random() * 24) + 'px';
+    piece.style.animationDuration = (2 + Math.random() * 2.8) + 's';
     piece.style.animationDelay = (Math.random() * 2) + 's';
     container.appendChild(piece);
   }
 
   // Second wave after a short delay
   setTimeout(function () {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 40; i++) {
       const piece = document.createElement('span');
       piece.className = 'confetti-piece';
       piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
       piece.style.left = Math.random() * 100 + '%';
-      piece.style.fontSize = (16 + Math.random() * 24) + 'px';
-      piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+      piece.style.fontSize = (18 + Math.random() * 24) + 'px';
+      piece.style.animationDuration = (2 + Math.random() * 2.8) + 's';
       piece.style.animationDelay = (Math.random() * 1.5) + 's';
       container.appendChild(piece);
     }

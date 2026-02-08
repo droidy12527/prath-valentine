@@ -12,8 +12,10 @@ body {
   justify-content: center;
   background: linear-gradient(135deg, #8b0a1a 0%, #c0392b 30%, #e74c8b 70%, #f8a5c2 100%);
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
+  padding: 40px 0;
 }
 
 /* Floating Hearts Background */
@@ -96,6 +98,177 @@ body {
   60% { transform: scale(1); }
 }
 
+/* Years Badge */
+.years-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #e74c8b, #c0392b);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Love Note */
+.love-note {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+/* Cheesy Lines */
+.cheesy-lines {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(231, 76, 139, 0.06);
+  border-radius: 16px;
+  border-left: 3px solid #e74c8b;
+}
+
+.cheesy-lines p {
+  font-size: 0.85rem;
+  color: #8b0a1a;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.cheesy-lines p:last-child {
+  margin-bottom: 0;
+}
+
+/* Milestones */
+.milestones {
+  margin-bottom: 28px;
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(231, 76, 139, 0.1);
+}
+
+.milestone:last-child {
+  border-bottom: none;
+}
+
+.milestone-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.milestone-text {
+  font-size: 0.88rem;
+  color: #666;
+  text-align: left;
+}
+
+/* Song / QR Section */
+.song-section {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: rgba(30, 215, 96, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(30, 215, 96, 0.2);
+  text-align: center;
+}
+
+.song-icon {
+  font-size: 1.6rem;
+}
+
+.song-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: #1a3a5f;
+  margin: 4px 0 6px;
+}
+
+.song-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.spotify-embed {
+  border-radius: 12px;
+}
+
+/* Oxford Section */
+.oxford-section {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(26, 58, 95, 0.06), rgba(231, 76, 139, 0.06));
+  border-radius: 16px;
+  border: 1px solid rgba(26, 58, 95, 0.12);
+}
+
+.oxford-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.oxford-icon {
+  font-size: 1.4rem;
+}
+
+.oxford-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: #1a3a5f;
+}
+
+.oxford-note {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.oxford-plans {
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.oxford-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.oxford-item span:first-child {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.oxford-closing {
+  font-size: 0.88rem;
+  color: #8b0a1a;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.proposal-gif {
+  max-width: 240px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 .proposal-text {
   font-family: 'Dancing Script', cursive;
   font-size: 2.2rem;
@@ -141,6 +314,7 @@ body {
   color: #666;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  transition: transform 0.2s ease;
 }
 
 /* Celebration Overlay */
@@ -151,8 +325,11 @@ body {
   background: linear-gradient(135deg, #8b0a1a 0%, #e74c8b 50%, #f8a5c2 100%);
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 60px 0 40px;
 }
 
 .celebration.active {
@@ -192,10 +369,11 @@ body {
 
 .celebration-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: #fff;
   margin-bottom: 16px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.35), 0 0 18px rgba(255, 255, 255, 0.25);
+  animation: titlePulse 1.6s ease-in-out infinite;
 }
 
 .celebration-message {
@@ -203,6 +381,53 @@ body {
   color: rgba(255, 255, 255, 0.95);
   line-height: 1.8;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.celebration-extra {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.celebration-extra p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.celebration-gif {
+  max-width: 280px;
+  margin: 16px auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Sparkle Overlay */
+.sparkle-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4), transparent 35%),
+    radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.3), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.25), transparent 35%),
+    radial-gradient(circle at 20% 85%, rgba(255, 255, 255, 0.35), transparent 30%);
+  mix-blend-mode: screen;
+  animation: sparkleDrift 6s ease-in-out infinite;
+}
+
+@keyframes sparkleDrift {
+  0% { transform: translateY(0); opacity: 0.65; }
+  50% { transform: translateY(-12px); opacity: 0.9; }
+  100% { transform: translateY(0); opacity: 0.7; }
 }
 
 /* Confetti / Falling Hearts */
@@ -254,7 +479,7 @@ body {
   }
 
   .celebration-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .celebration-message {
@@ -264,5 +489,38 @@ body {
 
   .celebration-heart {
     font-size: 60px;
+  }
+
+  .love-note {
+    font-size: 0.88rem;
+  }
+
+  .cheesy-lines p {
+    font-size: 0.8rem;
+  }
+
+  .milestone-text {
+    font-size: 0.82rem;
+  }
+
+  .celebration-extra p {
+    font-size: 0.95rem;
+    padding: 0 16px;
+  }
+
+  .oxford-section {
+    padding: 16px;
+  }
+
+  .oxford-title {
+    font-size: 1.2rem;
+  }
+
+  .oxford-note {
+    font-size: 0.84rem;
+  }
+
+  .oxford-item {
+    font-size: 0.8rem;
   }
 }
